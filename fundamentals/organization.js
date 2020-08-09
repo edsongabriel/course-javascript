@@ -1,0 +1,12 @@
+/*BASICAMENTE, JAVASCRIPT É ORGANIZADO EM SENTENÇAS (PODEM TERMINAR EM ";" OU NÃO) DE CÓDIGO E BLOCOS DE CÓDIGO.*/
+
+//OBSERVE A SEGUIR:
+console.log("Sentença de código");//PERCEBA QUE EXISTE UMA SENTENÇA!
+{
+    {
+        console.log("Olá, ");
+        console.log('Mundo!')//PADRÃO DO CURSO.
+    }
+}
+/*PERCEBA QUE ACIMA EXISTE DOIS BLOCOS DE CÓDIGO, REPRESENTADOS PELAS "{}"!*/
+
