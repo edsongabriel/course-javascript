@@ -1,5 +1,5 @@
-# javascript-course
-JavaScript Course
+# web-course
+Web Course
 
 
-This repository stores the codes written in an online javascript course.
+This repository stores the codes written in an online web course.
