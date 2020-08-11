@@ -1,7 +1,7 @@
 const name = 'Rebeca';
-const dconcatenation = 'Olá, ' + name + '!';//ESTA É A MANEIRA TRADICIONAL, MAS O CÓDIGO NÃO FICA BONITO.
+const concatenation = 'Olá, ' + name + '!';//ESTA É A MANEIRA TRADICIONAL, MAS O CÓDIGO NÃO FICA BONITO.
 const template = `Olá, ${name}!`;//NESTE CASO O JS FAZ A INTERPOLAÇÃO. OU SEJA, FAZ A INTERPRETAÇÃO DA VARIÁVEL E JÁ ADCIONA ELA DENTRO DA STRING.
-console.log(dconcatenation);
+console.log(concatenation);
 console.log(template);
 
 //EXPRESSÕES
