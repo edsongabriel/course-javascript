@@ -3,7 +3,7 @@ function getWholeRandomInBetween(min, max) {
     return Math.floor(value);
 }
 
-let option = -1;
+let option = 0;
 
 while (option != -1) {
     option = getWholeRandomInBetween(-1, 10);

@@ -10,6 +10,6 @@ const people = {
     weight: 64,
 }
 
-for (let attribute, in people) {
+for (attribute in people) {
     console.log(`${attribute} = ${people[attribute]}`);
 }
