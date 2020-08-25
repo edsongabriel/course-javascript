@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #content {
+            padding: 30px 0px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+
+    <nav>
+        <a href wm-nav="exercises/test.html">00 - Teste</a> |
+        <a href wm-nav="exercises/text1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercises/text2.html">02 - Texto 2</a>
+    </nav>
+
+    <section id="content"></section>
+
+    <footer>
+        Curso de Web Moderno
+    </footer>
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const content = document.getElementById('content');
+            link.onclick = function (e) {
+                e.preventDefault();
+
+                fetch(link.getAttribute('wm-nav'))
+                    .then(response => response.text())
+                    .then(html => content.innerHTML = html);
+            }
+        });
+    </script>
+</body>
+
+</html>
