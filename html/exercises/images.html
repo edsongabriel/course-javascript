@@ -1,0 +1,110 @@
+<div wm-slider>
+
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="city-wall" width="513" height="342"
+            title="City Wall by Tarso Bessa">
+    </p>
+
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Cod3r" height="342">
+    </p>
+
+    <p class="circle">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+    </p>
+
+    <p class="text">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="avatar" height="50" align="left">
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+        Texto asdfasdf sdfsdfsadfasfasdfas sdfasdfsadfsadfsadfasdfa
+    </p>
+
+    <p class="city"></p>
+
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="logo">
+        </picture>
+    </p>
+
+</div>
+
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .circle {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .text {
+        width: 400px;
+    }
+
+    .text img {
+        margin-right: 10px;
+    }
+
+    .city {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<script>
+
+    function toMove(element, begin, end, step, callback) {
+        const newBegin = begin - step;
+        if (newBegin >= end) {
+            element.style.left = newBegin + 'px';
+            setTimeout(() => toMove(element, newBegin, end, step, callback), 20);
+        } else {
+            callback();
+        }
+    }
+
+    // const p = document.querySelector('[wm-slider] > p');
+    // p.style.display = 'block';
+    // toMove(p, 1500, -520, 5, () => {
+    //     console.log('Terminou!');
+    // })
+
+    function slider() {
+        const elements = document.querySelectorAll('[wm-slider] > p');
+        const slides = Array.from(elements);
+        displaySlide(slides, slides[0]);
+    }
+
+    function displaySlide(slides, slide){
+        slide.style.display = 'block';
+
+        const begin = innerWidth;
+        const end = -slide.clientWidth;
+
+        slide.style.left = `${begin}px`;
+        toMove(slide, begin, end, 5, () => {
+            slide.style.display = 'none';
+            displaySlide(slides, getNext(slides, slide));
+        })
+    }
+
+    function getNext(list, current) {
+        const index = list.indexOf(current) + 1;
+        return index < list.length ? list[index] : list[0];
+    }
+
+    slider()
+</script>
